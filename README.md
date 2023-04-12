@@ -1,6 +1,6 @@
-# Video - React Router - TodoTable
+# React Router - TodoTable
 
-This repo contains a code for the videos of React Router lesson
+This repo contains a code for the React Router
 
 ```
 npm i
