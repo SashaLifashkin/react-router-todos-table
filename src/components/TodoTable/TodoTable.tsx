@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Todo } from '../../types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 type Props = {
     todos: Todo[];
@@ -10,6 +10,7 @@ type Props = {
 
 export const TodoTable: FC<Props> = ({ todos, selectedTodoId = 0 }) => {
     const isSelected = (todo: Todo) => todo.id === selectedTodoId;
+    const location = useLocation();
 
     return (
         <table className="table is-striped">
@@ -47,9 +48,14 @@ export const TodoTable: FC<Props> = ({ todos, selectedTodoId = 0 }) => {
 
                         <td>
                             <Link
-                                // to={isSelected(todo) ? '..' : `../${todo.id}`}
-                                // to={`./${todo.id}`}
-                                to={`/todos/${todo.id}`}
+                                // to={isSelected(todo)
+                                //     ? location.pathname.endsWith(`${todo.id}`) ? '..' : `/todos/${todo.id}`
+                                //     : `/todos/${todo.id}`
+                                // }
+                                to={location.pathname.endsWith(`${todo.id}`) ? '..' : `/todos/${todo.id}`}
+                                // to={isSelected(todo) ? '..' : `../${todo.id}`} // не работает
+                                // to={`../${todo.id}`} // не работает
+                                // to={`/todos/${todo.id}`}
                                 className={classNames(
                                 'button',
                                 {
