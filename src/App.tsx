@@ -3,6 +3,8 @@ import { TodosPage } from './pages/TodosPage';
 import { MainNavigate } from './components/MainNavigate';
 
 export const App = () => {
+    // const match = useMatch('/todos/:todoId'); // здесь тоже можно использовать!!!
+
     return <>
         <MainNavigate />
 
