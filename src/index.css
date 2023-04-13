@@ -1,15 +1,15 @@
 iframe {
-  display: none;
+    display: none;
 }
 
 .navbar-item.is-active {
-  font-weight: bolder;
+    font-weight: bolder;
 }
 
 .navbar-item .logo {
-  display: block;
-  box-sizing: border-box;
-  width: 40px;
-  max-height: 40px;
-  object-fit: cover;
+    display: block;
+    box-sizing: border-box;
+    width: 40px;
+    max-height: 40px;
+    object-fit: cover;
 }
