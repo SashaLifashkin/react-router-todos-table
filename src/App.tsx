@@ -18,6 +18,22 @@ export const TodosPage = () => {
     );
 };
 
+type Props = {
+    to: string;
+    text: string;
+};
+
+export const PageNavLink: React.FC<Props> = ({ to, text }) => {
+    return (
+        <NavLink
+            to={to}
+            className={({ isActive }) => classNames('navbar-item', { 'is-active': isActive })}
+        >
+            {text}
+        </NavLink>
+    );
+};
+
 export const App = () => {
     return <>
         <nav className="navbar is-light px-3">
@@ -26,19 +42,8 @@ export const App = () => {
                     <img src="/logo.svg" alt="MA" className="logo" />
                 </Link>
 
-                <NavLink
-                    to="/"
-                    end
-                    className={({ isActive }) => classNames('navbar-item', { 'is-active': isActive })}
-                >
-                    Home
-                </NavLink>
-                <NavLink
-                    to="todos"
-                    className={({ isActive }) => classNames('navbar-item', { 'is-active': isActive })}
-                >
-                    Todos
-                </NavLink>
+                <PageNavLink to="/" text="Home" />
+                <PageNavLink to="todos" text="Todos" />
             </div>
         </nav>
 
