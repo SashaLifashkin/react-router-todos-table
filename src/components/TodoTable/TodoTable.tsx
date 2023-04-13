@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Todo } from '../types';
+import { Todo } from '../../types';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -47,6 +47,8 @@ export const TodoTable: FC<Props> = ({ todos, selectedTodoId = 0 }) => {
 
                         <td>
                             <Link
+                                // to={isSelected(todo) ? '..' : `../${todo.id}`}
+                                // to={`./${todo.id}`}
                                 to={`/todos/${todo.id}`}
                                 className={classNames(
                                 'button',
