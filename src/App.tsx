@@ -1,6 +1,7 @@
 import { todos } from './data/todos';
 import { TodoTable } from './components/TodoTable';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Navigate, Routes, Route, useParams, NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 export const TodosPage = () => {
     const { todoId = 0 } = useParams();
@@ -25,13 +26,32 @@ export const App = () => {
                     <img src="/logo.svg" alt="MA" className="logo" />
                 </Link>
 
-                <Link to="/" className="navbar-item">Home</Link>
-                <Link to="todos" className="navbar-item">Todos</Link>
+                <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) => classNames('navbar-item', { 'is-active': isActive })}
+                >
+                    Home
+                </NavLink>
+                <NavLink
+                    to="todos"
+                    className={({ isActive }) => classNames('navbar-item', { 'is-active': isActive })}
+                >
+                    Todos
+                </NavLink>
             </div>
         </nav>
 
         <div className="section">
-            <Outlet />
+            <Routes>
+                <Route path="/" element={<h1 className="title">Home Page</h1>} />
+                <Route path="home" element={<Navigate to="/" replace />} />
+                <Route path="todos">
+                    <Route index element={<TodosPage />} />
+                    <Route path=":todoId" element={<TodosPage />} />
+                </Route>
+                <Route path="*" element={<p>Page nof found</p>} />
+            </Routes>
         </div>
     </>;
 };
