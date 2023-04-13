@@ -1,6 +1,6 @@
 import { todos } from './data/todos';
 import { TodoTable } from './components/TodoTable';
-import { Link, Navigate, Routes, Route, useParams } from 'react-router-dom';
+import { Link, Navigate, Outlet, Routes, Route, useParams } from 'react-router-dom';
 
 const TodosPage = () => {
     const { todoId = 0 } = useParams();
@@ -32,18 +32,17 @@ export const App = () => {
 
         <div className="section">
             <Routes>
-                <Route
-                    path="/"
-                    element={<h1 className="title">Home Page</h1>}
-                />
-
-                <Route
-                    path="home"
-                    element={<Navigate to="/" replace />}
-                />
+                <Route path="/" element={<h1 className="title">Home Page</h1>} />
+                <Route path="home" element={<Navigate to="/" replace />} />
 
                 {/* Наследование роутеров */}
-                <Route path="todos">
+                <Route path="todos" element={
+                    <>
+                        123
+                        <Outlet />
+                        456
+                    </>
+                }>
                     <Route index element={<TodosPage />} />
                     <Route path=":todoId" element={<TodosPage />} />
                 </Route>
@@ -63,10 +62,7 @@ export const App = () => {
                     }
                 /> */}
 
-                <Route
-                    path="*"
-                    element={<p>Page nof found</p>}
-                />
+                <Route path="*" element={<p>Page nof found</p>} />
             </Routes>
         </div>
     </>;
