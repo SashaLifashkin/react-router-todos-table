@@ -1,6 +1,6 @@
 import { Navigate, Routes, Route } from 'react-router-dom';
 import { TodosPage } from './pages/TodosPage';
-import { MainNavigate } from './components/MainNavigate';
+import { MainNavigate } from './components/MainNavigation';
 
 export const App = () => {
     // const match = useMatch('/todos/:todoId'); // здесь тоже можно использовать!!!
