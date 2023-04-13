@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Todo } from '../types';
+import { Todo } from '../../types';
 import { Link } from 'react-router-dom';
 
 type Props = {

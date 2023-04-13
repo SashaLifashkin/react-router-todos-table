@@ -1,5 +1,5 @@
 import { todos } from './data/todos';
-import { TodoTable } from './components/TodoTable';
+import { TodoTable } from './components/TodoTable/TodoTable';
 import { Link, Navigate, Routes, Route, useParams, NavLink, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
