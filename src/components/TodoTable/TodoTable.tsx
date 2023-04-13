@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Todo } from '../../types';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 
 type Props = {
     todos: Todo[];
@@ -11,6 +11,8 @@ type Props = {
 export const TodoTable: FC<Props> = ({ todos, selectedTodoId = 0 }) => {
     const isSelected = (todo: Todo) => todo.id === selectedTodoId;
     const location = useLocation();
+    // const match = useMatch('/todos/:todoId');
+
 
     return (
         <table className="table is-striped">
@@ -48,8 +50,8 @@ export const TodoTable: FC<Props> = ({ todos, selectedTodoId = 0 }) => {
 
                         <td>
                             <Link
-                                // to={isSelected(todo)
-                                //     ? location.pathname.endsWith(`${todo.id}`) ? '..' : `/todos/${todo.id}`
+                                // to={match?.params.todoId !== undefined
+                                //     ? +match?.params.todoId === todo.id ? '..' : `/todos/${todo.id}`
                                 //     : `/todos/${todo.id}`
                                 // }
                                 to={location.pathname.endsWith(`${todo.id}`) ? '..' : `/todos/${todo.id}`}
