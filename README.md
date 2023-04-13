@@ -3,6 +3,6 @@
 This repo contains a code for the videos of React Router lesson
 
 ```
-npm i
+npm i (npm install)
 npm start
 ```
