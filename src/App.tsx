@@ -1,13 +1,25 @@
 import { todos } from './data/todos';
 import { TodoTable } from './components/TodoTable';
-import { Link, Navigate, Routes, Route, useParams, NavLink } from 'react-router-dom';
+import { Link, Navigate, Routes, Route, useParams, NavLink, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const TodosPage = () => {
     const { todoId = 0 } = useParams();
+    const navigate = useNavigate();
 
     return (
         <>
+            <button
+                className='button is-link'
+                onClick={() => {
+                    setTimeout(() => {
+                        navigate('/');
+                    }, 2000);
+                }}
+            >
+                Go Home
+            </button>
+
             <h1 className="title">Todos Page</h1>
 
             <TodoTable
